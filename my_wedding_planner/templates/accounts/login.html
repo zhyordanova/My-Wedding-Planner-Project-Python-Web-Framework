@@ -1,0 +1,16 @@
+{% extends 'shared/partials/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <form class="w-50 m-auto" method="post" style="border: 1px solid grey; margin: 10% 0; padding: 5% 5%"
+              action="{% url 'login' %}">
+            <h2>Login</h2>
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-primary">Login</button>
+            <span>Forgot password?<a href="{% url 'password_reset' %}" style="color:orange">Reset Password</a></span>
+            <span>Do not have an account?<a href="{% url 'register' %}" style="color:orange">Register here</a></span>
+        </form>
+    </div>
+
+{% endblock %}

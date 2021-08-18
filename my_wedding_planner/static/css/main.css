@@ -1,0 +1,151 @@
+body {
+    background-color: #f4f4f2;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 3.5em;
+    line-height: 1.5;
+    color: hotpink;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 1.5;
+    color: plum;
+}
+
+h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 90;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: lightskyblue;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 70;
+    font-size: 1.0rem;
+    line-height: 1;
+    color: lightpink;
+}
+
+.btn {
+    color: aqua;
+}
+
+.headers {
+    color: #ea2c62;
+}
+
+.paddings {
+    padding: 1.5%;
+}
+
+.tick {
+    color: forestgreen;
+}
+
+/* Navigation */
+
+#navigation {
+    background-color: #495464;
+}
+
+
+.icon {
+    color: purple;
+    padding-bottom: 1rem;
+    margin-top: 5rem;
+}
+
+.icon:hover {
+    color: #ea2c62;
+}
+
+.features_add {
+    font-weight: 900;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 5%;
+}
+
+.features_row {
+    color: #495464;
+    text-align: center;
+    padding: 0 10%;
+    margin-bottom: 5rem;
+}
+
+/* About us section */
+
+#about {
+    background-color: #8ac6d1;
+    color: #f4f4f2;
+    padding-bottom: 2%;
+}
+
+.about-text {
+    text-align: center;
+    padding: 3%;
+
+}
+
+.about-image {
+    position: center;
+    padding-bottom: 6%;
+    text-align: center;
+}
+
+
+/* Footer section */
+#footer {
+    background-color: #8ac6d1;
+    padding-bottom: 1px;
+}
+
+/*#footer-fixed {*/
+/*    position: fixed;*/
+/*    left: 0;*/
+/*    bottom: 0;*/
+/*    width: 100%;*/
+/*    !*background-color: #8ac6d1;*!*/
+/*    color: white;*/
+/*    text-align: center;*/
+/*    font-size: smaller;*/
+/*}*/
+
+.logo {
+    margin: 1rem;
+
+}
+
+.copyright {
+    color: #8f8f8f;
+    text-align: center;
+    margin-bottom: 0;
+
+}
+
+/*login*/
+
+#login {
+    padding: 5%;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* Profile section*/
+.user {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
