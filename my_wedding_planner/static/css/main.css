@@ -35,8 +35,17 @@ p {
     color: lightpink;
 }
 
+a {
+    color: black;
+    text-decoration: underline;
+}
+
 .btn {
-    color: aqua;
+    color: black;
+}
+
+.div-button {
+    margin-left: 20px;
 }
 
 .headers {
@@ -54,7 +63,24 @@ p {
 /* Navigation */
 
 #navigation {
-    background-color: #495464;
+    background-color: #dee2e6;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 0.5rem;
+    color: #1abc9c;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
 
@@ -82,25 +108,8 @@ p {
     margin-bottom: 5rem;
 }
 
+
 /* About us section */
-
-#about {
-    background-color: #8ac6d1;
-    color: #f4f4f2;
-    padding-bottom: 2%;
-}
-
-.about-text {
-    text-align: center;
-    padding: 3%;
-
-}
-
-.about-image {
-    position: center;
-    padding-bottom: 6%;
-    text-align: center;
-}
 
 
 /* Footer section */
@@ -122,14 +131,17 @@ p {
 
 .logo {
     margin: 1rem;
+    float: left;
+}
 
+nav {
+    float: right;
 }
 
 .copyright {
     color: #8f8f8f;
     text-align: center;
     margin-bottom: 0;
-
 }
 
 /*login*/

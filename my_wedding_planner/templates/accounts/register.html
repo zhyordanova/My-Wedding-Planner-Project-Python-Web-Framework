@@ -9,8 +9,18 @@
                     <h2>Sign up</h2>
                     {% csrf_token %}
                     {{ form }}
-                    <button class="btn btn-primary" type="submit">Register</button>
-                    <span>Have an account?<a href="{% url 'login' %}" style="color:orange">Login here</a></span>
+
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button type="submit" class="btn btn-outline-info">Register</button>
+                    </div>
+
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+                    <span>Have an account?<a href="{% url 'login' %}" style="color:purple">Login here</a></span>
+
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
                 </form>
             </div>

@@ -6,18 +6,19 @@
         <div class="row">
             {% for task in tasks %}
                 <div class="col-lg-4">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card h-100" style="width: 18rem;">
                         <img src="{{ task.image.url }}" class="card-img-top" alt="{{ task.name }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ task.category }}</h5>
                             <p class="card-text">{{ task.name }}</p>
                             <p class="card-text">Budget: {{ task.budget }}</p>
-                            <a href="{% url 'task details' task.pk %}" class="btn btn-primary">See details</a>
+                            <a href="{% url 'task details' task.pk %}" class="btn btn-outline-info">See details</a>
                         </div>
                     </div>
                 </div>
             {% endfor %}
         </div>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
         {% include 'shared/partials/pagination.html' %}
 
     </div>

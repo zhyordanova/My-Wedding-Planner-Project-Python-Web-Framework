@@ -7,9 +7,24 @@
             <h2>Login</h2>
             {% csrf_token %}
             {{ form }}
-            <button type="submit" class="btn btn-primary">Login</button>
-            <span>Forgot password?<a href="{% url 'password_reset' %}" style="color:orange">Reset Password</a></span>
-            <span>Do not have an account?<a href="{% url 'register' %}" style="color:orange">Register here</a></span>
+
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-outline-info">Login</button>
+            </div>
+
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+            <div>
+                <span>Forgot password?<a href="{% url 'password_reset' %}" style="color:purple">Reset Password</a></span>
+            </div>
+
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+            <div>
+                <span>Do not have an account?<a href="{% url 'register' %}" style="color:purple">Register here</a></span>
+            </div>
         </form>
     </div>
 

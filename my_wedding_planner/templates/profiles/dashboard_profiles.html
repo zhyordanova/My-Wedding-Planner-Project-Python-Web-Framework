@@ -3,7 +3,7 @@
 
 {% block content %}
     <div class="text-center">
-        <h2>Hello, {{ request.user }}!</h2>
+        <h2>Welcome, {{ request.user }}!</h2>
         <h5>This is your profile</h5>
         {% if profile.profile_image %}
             <img class="rounded-circle mb-3" src="{{ profile.profile_image.url }}" alt="" width="140"
@@ -14,10 +14,22 @@
         {% endif %}
         <div class="w-50 m-auto">
             <form action="{% url 'dashboard profile' %}" method="post" enctype="multipart/form-data">
+
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
                 {% csrf_token %}
                 {{ form }}
-                <button class="btn btn-success">Update Profile</button>
-                <a class="btn btn-outline-primary" href="{% url 'delete profile' profile.pk %}">Delete</a>
+
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+                <button class="btn btn-outline-success">Update Profile</button>
+
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+                <a class="btn btn-outline-danger" href="{% url 'delete profile' profile.pk %}">Delete</a>
+
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
             </form>
         </div>
     </div>
@@ -28,19 +40,21 @@
             <div class="row">
                 {% for task in tasks %}
                     <div class="col-lg-4">
-                        <div class="card" style="width: 15rem;">
-                            <img src="{{ task.image.url }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ task.category }} {{ task.name }},
-                                    Budget: {{ task.budget }}</h5>
-                                <p class="card-text">{{ task.note }}</p>
-                                <p class="card-text"><strong>Owner: {{ request.user }}</strong></p>
-                                <a href="{% url 'task details' task.pk %}" class="btn btn-primary">See details</a>
+                        <div class="card h-100" style="width: 15rem;">
+                            <div class="card">
+                                <img src="{{ task.image.url }}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ task.category }} {{ task.name }},
+                                        Budget {{ task.budget }}</h5>
+                                    <p class="card-text">{{ task.note }}</p>
+                                    <p class="card-text"><strong>Owner {{ request.user }}</strong></p>
+                                    <a href="{% url 'task details' task.pk %}" class="btn btn-outline-info">See
+                                        details</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 {% endfor %}
-                {% include 'shared/partials/pagination.html' %}
             </div>
         </div>
     {% else %}
@@ -48,7 +62,7 @@
         </div>
         <div class="text-center">
             <h2>You have no tasks</h2>
-            <a href="{% url 'create task' %}" class="btn btn-success">Add Task</a>
+            <a href="{% url 'create task' %}" class="btn btn-outline-success">Add Task</a>
         </div>
     {% endif %}
 {% endblock %}

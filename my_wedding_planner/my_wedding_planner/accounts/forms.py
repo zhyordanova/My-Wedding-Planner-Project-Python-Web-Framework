@@ -122,7 +122,6 @@ class RegisterForm(BootstrapFormMixin, UserCreationForm):
                 'placeholder': 'wedding_planner@email.com',
             }
         ),
-
         label='Enter your email',
     )
 
@@ -132,7 +131,6 @@ class RegisterForm(BootstrapFormMixin, UserCreationForm):
                 'placeholder': 'e.g. ********',
             }
         ),
-
         label='Enter your password',
     )
 
@@ -142,8 +140,7 @@ class RegisterForm(BootstrapFormMixin, UserCreationForm):
                 'placeholder': 'Enter the same password, for verification',
             }
         ),
-
-        label='Confirm your password ',
+        label='Confirm your password',
     )
 
 

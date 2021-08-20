@@ -17,6 +17,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.views.static import serve
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
@@ -24,4 +25,5 @@ urlpatterns = [
                   path('tasks/', include('my_wedding_planner.tasklist.urls')),
                   path('accounts/', include('my_wedding_planner.accounts.urls')),
                   path('profile/', include('my_wedding_planner.profiles.urls')),
+                  path('static/<path:path>/', serve, {'document_root': settings.STATIC_ROOT, }),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

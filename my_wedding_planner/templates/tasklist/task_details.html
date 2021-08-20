@@ -3,20 +3,23 @@
 {% block content %}
     <div class="d-flex">
         <div class="d-inline p-2 w-50">
+            <div class="card"></div>
             <img src="{{ tasks.image.url }}" class="w-50 rounded mx-auto d-block" alt="">
         </div>
         <div class="d-inline p-2 w-50">
-            <div class="d-flex justify-content-between">
-                <h5><u>Category:</u> {{ tasks.category }}</h5>
-                <h5><u>Name:</u> {{ tasks.name }}</h5>
-                <h5><u>Budget:</u> {{ tasks.budget }}</h5>
-                <h5><u>Owner:</u> {{ tasks.user.email }}</h5>
+            <div class="d-flex justify-content-center" style="background: #f4f4f2">
+                <ul class="list-group list-group-flush" style="background: #f4f4f2">
+                    <li class="list-group-item" style="background: #f4f4f2"><u>Category</u> {{ tasks.category }}</li>
+                    <li class="list-group-item" style="background: #f4f4f2"><u>Name</u> {{ tasks.name }}</li>
+                    <li class="list-group-item" style="background: #f4f4f2"><u>Budget</u> {{ tasks.budget }}</li>
+                    <li class="list-group-item" style="background: #f4f4f2"><u>Owner</u> {{ tasks.user.email }}</li>
+                    <li class="list-group-item" style="background: #f4f4f2"><u>Note</u> {{ tasks.note }}</li>
+                </ul>
             </div>
-            <p class="mt-2">Note: {{ tasks.note }}</p>
             {% if is_owner %}
                 <div>
-                    <a href="{% url 'edit task' tasks.pk %}" class="btn btn-success">Edit</a>
-                    <a href="{% url 'delete task' tasks.pk %}" class="btn btn-danger">Delete</a>
+                    <a href="{% url 'edit task' tasks.pk %}" class="btn btn-outline-success">Edit</a>
+                    <a href="{% url 'delete task' tasks.pk %}" class="btn btn-outline-danger">Delete</a>
                 </div>
             {% else %}
                 <a href="{% url 'task like' tasks.pk %}">

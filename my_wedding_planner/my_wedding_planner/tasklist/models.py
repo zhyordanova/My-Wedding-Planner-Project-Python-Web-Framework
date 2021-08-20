@@ -11,8 +11,8 @@ class TaskList(models.Model):
     CATEGORY_CHOICE_TRANSPORTATION = 'Transportation'
     CATEGORY_CHOICE_DECORATION = 'Decoration'
     CATEGORY_CHOICE_PHOTO_AND_VIDEO = 'Photo and Video'
-    CATEGORY_CHOICE_PHOTO_ENTERTAINMENT = 'Entertainment'
-    CATEGORY_CHOICE_PHOTO_ATTIRE_AND_ACCESSORIES = 'Attire and Accessories'
+    CATEGORY_CHOICE_ENTERTAINMENT = 'Entertainment'
+    CATEGORY_CHOICE_ATTIRE_AND_ACCESSORIES = 'Attire and Accessories'
 
     CATEGORY_CHOICES = [
         (CATEGORY_CHOICE_RECEPTION, 'Reception'),
@@ -20,8 +20,8 @@ class TaskList(models.Model):
         (CATEGORY_CHOICE_TRANSPORTATION, 'Transportation'),
         (CATEGORY_CHOICE_DECORATION, 'Decoration'),
         (CATEGORY_CHOICE_PHOTO_AND_VIDEO, 'Phone and video'),
-        (CATEGORY_CHOICE_PHOTO_ENTERTAINMENT, 'Entertainment'),
-        (CATEGORY_CHOICE_PHOTO_ATTIRE_AND_ACCESSORIES, 'Attire and accessories'),
+        (CATEGORY_CHOICE_ENTERTAINMENT, 'Entertainment'),
+        (CATEGORY_CHOICE_ATTIRE_AND_ACCESSORIES, 'Attire and accessories'),
     ]
 
     name = models.CharField(

@@ -1,5 +1,8 @@
+import os
+
+from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.db.models.signals import post_save, pre_save
+from django.db.models.signals import post_save, pre_save, post_delete
 
 from django.dispatch import receiver
 
@@ -20,22 +23,26 @@ def user_created(sender, instance, created, **kwargs):
 
 @receiver(pre_save, sender=MyWeddingPlannerProfile)
 def check_is_complete(sender, instance, **kwargs):
-    if instance.first_name and instance.last_name and instance.phone_number:
+    if instance.first_name and instance.last_name and instance.phone_number and instance.profile_image:
         instance.is_complete = True
 
-    if instance.pk:
-        try:
-            old_avatar = MyWeddingPlannerProfile.objects.get(pk=instance.pk).profile_image
-        except MyWeddingPlannerProfile.DoesNotExist:
-            return
-        else:
-            # try:
-            new_avatar = instance.profile_image.url
-                # except AttributeError:
-            if old_avatar and old_avatar != new_avatar:
-                old_avatar.delete(save=False)
+    # if instance.pk:
+    #     try:
+    #         old_avatar = MyWeddingPlannerProfile.objects.get(pk=instance.pk).profile_image
+    #     except MyWeddingPlannerProfile.DoesNotExist:
+    #         return
+    #     else:
+    #         new_avatar = instance.profile_image.url
+    #
+    #         if old_avatar and old_avatar != new_avatar:
+    #             old_avatar.delete(save=False)
 
-# @receiver(post_delete, sender=MyWeddingPlannerProfile)
-# def submission_delete(sender, instance, **kwargs):
-#     if 'profile_image' in instance.image.url:
-#         instance.image.delete(False)
+
+@receiver(post_delete, sender=MyWeddingPlannerProfile)
+def submission_delete(sender, instance, **kwargs):
+    current_profile = MyWeddingPlannerProfile.objects.get (instance.pk)
+    current_profile_image_location = os.path.join(settings.MEDIA_ROOT, str(instance.email))
+    if current_profile.image:
+        current_profile.image.delete()
+    if os.path.isdir(current_profile_image_location):
+        os.rmdir(current_profile_image_location)
