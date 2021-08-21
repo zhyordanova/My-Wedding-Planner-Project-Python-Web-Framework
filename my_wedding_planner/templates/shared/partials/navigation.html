@@ -1,63 +1,58 @@
 {% load static %}
-
-<nav class="navbar navbar-expand-sm navbar-dark">
+<nav>
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'index' %}" style="color: black">
-            <img src="{% static 'images/my-wedding-planner-logo.png' %}" style="color: black" width="100" height="60"
-                 class="d-inline-block align-top" alt="">
-        </a>
-        <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-                style="color: black"
-        >
-            <span class="navbar-toggler-icon" style="color: black"></span>
-        </button>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="{% url 'index' %}" style="color: aqua">
+                <img src="{% static 'images/my-wedding-planner-logo.png' %}" style="color: black" width="100"
+                     height="60"
+                     class="d-inline-block align-top" alt="">
+            </a>
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                    style="color: black"
+            >
+                <span class="navbar-toggler-icon" style="color: black"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto text-dark">
+                    <li>
+                        <a class="nav-link" href="{% url 'love stories' %}" style="color: black">Love Stories</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{% url 'list tasks' %}" style="color: black">TaskList</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{% url 'create task' %}" style="color: black">Add Task</a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                        <li>
+                            <a class="nav-link" href="{% url 'dashboard profile' %}"
+                               style="color: black">Hello, {{ request.user }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}" style="color: black">Log out</a>
+                        </li>
+                    {% else %}
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <li class="float-right">
+                            <a href="{% url 'login' %}" class="btn btn-outline-info" style="color: black">Login</a>
+                        </li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <li class="float-right">
+                            <a href="{% url 'register' %}" class="btn btn-outline-info"
+                               style="color: black">Register</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
     </div>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="nav justify-content-end">
-            <li>
-                <a class="nav-link" href="{% url 'love stories' %}" style="color: black">Love Stories</a>
-            </li>
-            <li>
-                <a class="nav-link" href="{% url 'list tasks' %}" style="color: black">TaskList</a>
-            </li>
-            <li>
-                <a class="nav-link" href="{% url 'create task' %}" style="color: black">Add Task</a>
-            </li>
-            {% if request.user.is_authenticated %}
-                <li>
-                    <a class="nav-link" href="{% url 'dashboard profile' %}"
-                       style="color: black">Hello, {{ request.user }}</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="{% url 'logout' %}" style="color: black">Log out</a>
-                </li>
-            {% else %}
-                <li>
-                    <a href="{% url 'login' %}" class="btn btn-outline-info"
-                       style="color: black">Login
-                    </a>
-                </li>
-
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-
-                <li>
-                    <a href="{% url 'register' %}" class="btn btn-outline-info"
-                       style="color: black">Register
-                    </a>
-                </li>
-
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            {% endif %}
-        </ul>
-    </div>
-
 </nav>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 

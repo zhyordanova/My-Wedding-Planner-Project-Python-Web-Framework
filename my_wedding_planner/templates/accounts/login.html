@@ -1,9 +1,13 @@
 {% extends 'shared/partials/base.html' %}
 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
 {% block content %}
-    <div class="container">
-        <form class="w-50 m-auto" method="post" style="border: 1px solid grey; margin: 10% 0; padding: 5% 5%"
-              action="{% url 'login' %}">
+    <div class="container-fluid" style="background-image: none">
+       <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <form style="border: 1px solid grey; margin: 10% 0; padding: 10% 5%" method="post">
             <h2>Login</h2>
             {% csrf_token %}
             {{ form }}
@@ -17,13 +21,15 @@
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
             <div>
-                <span>Forgot password?<a href="{% url 'password_reset' %}" style="color:purple">Reset Password</a></span>
+                <span>Forgot password?<a href="{% url 'password_reset' %}"
+                                         style="color:purple">Reset Password</a></span>
             </div>
 
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
             <div>
-                <span>Do not have an account?<a href="{% url 'register' %}" style="color:purple">Register here</a></span>
+                <span>Do not have an account?<a href="{% url 'register' %}"
+                                                style="color:purple">Register here</a></span>
             </div>
         </form>
     </div>

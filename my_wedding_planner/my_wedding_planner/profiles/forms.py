@@ -1,14 +1,10 @@
 from django import forms
-from django.contrib.auth.forms import UserChangeForm
 
 from my_wedding_planner.core.bootstrap_form_mixin import BootstrapFormMixin
 from my_wedding_planner.profiles.models import MyWeddingPlannerProfile
 
 
 class PlannerProfileForm(BootstrapFormMixin, forms.ModelForm):
-    """
-    A form for creating new users. Include all the required fields, plus a repeated password.
-    """
 
     class Meta:
         model = MyWeddingPlannerProfile
@@ -36,18 +32,3 @@ class PlannerProfileForm(BootstrapFormMixin, forms.ModelForm):
             ),
         }
 
-
-# class ChangeProfileInfo(UserChangeForm):
-#     def __init__(self, *args, **kwargs):
-#         self.request = kwargs.pop('request', None)
-#         super().__init__(*args, **kwargs)
-#         self.field['profile_image'].label = 'Change Profile Image'
-#
-#     password = None
-#
-#     class Meta:
-#         model = MyWeddingPlannerProfile
-#         fields = ('profile_image', 'first_name', 'last_name', 'age', 'phone_number')
-#         widgets = {
-#             'profile_image': forms.FileInput(),
-#         }

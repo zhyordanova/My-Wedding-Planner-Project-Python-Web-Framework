@@ -24,7 +24,11 @@ h5 {
     font-weight: 90;
     font-size: 1.25rem;
     line-height: 1;
-    color: lightskyblue;
+    color: blue;
+}
+
+h6 {
+  font-size: 0.10rem;
 }
 
 p {
@@ -32,7 +36,7 @@ p {
     font-weight: 70;
     font-size: 1.0rem;
     line-height: 1;
-    color: lightpink;
+    color: rebeccapurple;
 }
 
 a {

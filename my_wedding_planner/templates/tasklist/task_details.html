@@ -1,5 +1,7 @@
 {% extends 'shared/partials/base.html' %}
 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
 {% block content %}
     <div class="d-flex">
         <div class="d-inline p-2 w-50">
@@ -51,7 +53,7 @@
                 <form method="post" action="{% url 'task comment' tasks.pk %}">
                     {% csrf_token %}
                     {{ comment_form }}
-                    <button class="btn btn-primary mt-2" type="submit">Add comment</button>
+                    <button class="btn btn-outline-info" type="submit">Add comment</button>
                 </form>
             </div>
         {% endif %}

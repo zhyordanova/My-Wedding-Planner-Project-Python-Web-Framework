@@ -17,35 +17,6 @@ class LoginUserView(LoginView):
     def get_success_url(self):
         return reverse('index')
 
-    # def get(self, request):
-    #     form = LoginForm()
-    #     context = {
-    #         'form': form,
-    #     }
-    #     return render(request, 'accounts/login.html', context)
-    #
-    # def post(self, request):
-    #     form = LoginForm(request.POST)
-    #     if form.is_valid():
-    #         email = form.cleaned_data['email']
-    #         password = form.cleaned_data['password1']
-    #         user = authenticate(request, username=email, password=password)
-    #
-    #         if user is not None:
-    #             login(request, user)
-    #             return redirect('dashboard profile')
-    #         else:
-    #             context = {
-    #                 'form': form,
-    #                 'error': "This email and/or password do not exist."
-    #             }
-    #         return render(request, 'accounts/login.html', context)
-    #
-    #     context = {
-    #         'form': form
-    #     }
-    #     return render(request, 'accounts/login.html', context)
-
 
 class RegisterUserView(CreateView):
     model = MyWeddingPlannerUser

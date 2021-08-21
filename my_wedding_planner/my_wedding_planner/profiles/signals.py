@@ -26,17 +26,6 @@ def check_is_complete(sender, instance, **kwargs):
     if instance.first_name and instance.last_name and instance.phone_number and instance.profile_image:
         instance.is_complete = True
 
-    # if instance.pk:
-    #     try:
-    #         old_avatar = MyWeddingPlannerProfile.objects.get(pk=instance.pk).profile_image
-    #     except MyWeddingPlannerProfile.DoesNotExist:
-    #         return
-    #     else:
-    #         new_avatar = instance.profile_image.url
-    #
-    #         if old_avatar and old_avatar != new_avatar:
-    #             old_avatar.delete(save=False)
-
 
 @receiver(post_delete, sender=MyWeddingPlannerProfile)
 def submission_delete(sender, instance, **kwargs):

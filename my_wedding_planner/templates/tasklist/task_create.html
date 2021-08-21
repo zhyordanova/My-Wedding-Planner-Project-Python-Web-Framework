@@ -1,20 +1,26 @@
 {% extends 'shared/partials/base.html' %}
 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
 {% block content %}
-    <div class="container">
-        <h1 class="text-center">Add new Task</h1>
-        <div class="row">
+    <div class="container-fluid" style="background-image: none">
+        <div class="center-block">
             <div class="col-lg-3"></div>
-            <div class="col-lg-6">
-                <form method="post" class="furniture-form" action="{% url 'create task' %}"
-                      enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form }}
-                    <button class="btn btn-primary mt-2" type="submit">Create</button>
-                </form>
+            <div class="col-lg-7">
+                <h1 class="text-center">Add new Task</h1>
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-7">
+                        <form method="post" class="furniture-form" action="{% url 'create task' %}"
+                              enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form }}
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <button class="btn btn-outline-info" type="submit">Create</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-3"></div>
+                </div>
             </div>
-            <div class="col-lg-3"></div>
-        </div>
-    </div>
 
 {% endblock %}

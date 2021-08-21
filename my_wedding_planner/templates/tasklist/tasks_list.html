@@ -1,25 +1,31 @@
 {% extends 'shared/partials/base.html' %}
 
-{% block content %}
-    <div class="container">
-        <h1 class='text-center'>Tasks List</h1>
-        <div class="row">
-            {% for task in tasks %}
-                <div class="col-lg-4">
-                    <div class="card h-100" style="width: 18rem;">
-                        <img src="{{ task.image.url }}" class="card-img-top" alt="{{ task.name }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ task.category }}</h5>
-                            <p class="card-text">{{ task.name }}</p>
-                            <p class="card-text">Budget: {{ task.budget }}</p>
-                            <a href="{% url 'task details' task.pk %}" class="btn btn-outline-info">See details</a>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        {% include 'shared/partials/pagination.html' %}
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
-    </div>
+{% block content %}
+    <div class="container-fluid" style="background-image: none">
+        <div class="center-block">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-7">
+                <h1 class='text-center'>Tasks List</h1>
+                <div class="row">
+                    {% for task in tasks %}
+                        <div class="col-lg-4">
+                            <div class="card h-100" style="width: 18rem;">
+                                <img src="{{ task.image.url }}" class="card-img-top" alt="{{ task.name }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ task.category }}</h5>
+                                    <p class="card-text">{{ task.name }}</p>
+                                    <p class="card-text">Budget: {{ task.budget }}</p>
+                                    <a href="{% url 'task details' task.pk %}" class="btn btn-outline-info">See
+                                        details</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                {% include 'shared/partials/pagination.html' %}
+
+            </div>
 {% endblock %}

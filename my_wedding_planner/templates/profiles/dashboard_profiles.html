@@ -1,68 +1,74 @@
 {% extends 'shared/partials/base.html' %}
 {% load static %}
 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
 {% block content %}
-    <div class="text-center">
-        <h2>Welcome, {{ request.user }}!</h2>
-        <h5>This is your profile</h5>
-        {% if profile.profile_image %}
-            <img class="rounded-circle mb-3" src="{{ profile.profile_image.url }}" alt="" width="140"
-                 height="140">
-        {% else %}
-            <img class="rounded-circle mb-3" src="{% static 'images/anonymous_profile.png' %}" alt="" width="140"
-                 height="140">
-        {% endif %}
-        <div class="w-50 m-auto">
-            <form action="{% url 'dashboard profile' %}" method="post" enctype="multipart/form-data">
+    <div class="container-fluid">
+        <div class="center-block">
+            <div class="col-lg-offset-6"></div>
+            <div class="col-lg-6">
+                <h2>Welcome, {{ request.user }}!</h2>
+                <h5>This is your profile</h5>
+                {% if profile.profile_image %}
+                    <img class="rounded-circle mb-3" src="{{ profile.profile_image.url }}" alt="" width="140"
+                         height="140">
+                {% else %}
+                    <img class="rounded-circle mb-3" src="{% static 'images/anonymous_profile.png' %}" alt=""
+                         width="140"
+                         height="140">
+                {% endif %}
+                <div class="w-50 m-auto">
+                    <form action="{% url 'dashboard profile' %}" method="post" enctype="multipart/form-data">
 
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
-                {% csrf_token %}
-                {{ form }}
+                        {% csrf_token %}
+                        {{ form }}
 
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
-                <button class="btn btn-outline-success">Update Profile</button>
+                        <button class="btn btn-outline-success">Update Profile</button>
 
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
-                <a class="btn btn-outline-danger" href="{% url 'delete profile' profile.pk %}">Delete</a>
+                        <a class="btn btn-outline-danger" href="{% url 'delete profile' profile.pk %}">Delete</a>
 
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
-            </form>
-        </div>
-    </div>
-    <hr>
-    {% if tasks %}
-        <h2 class='text-center'>These is your TaskList</h2>
-        <div class="row">
-            <div class="row">
-                {% for task in tasks %}
-                    <div class="col-lg-4">
-                        <div class="card h-100" style="width: 15rem;">
-                            <div class="card">
-                                <img src="{{ task.image.url }}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ task.category }} {{ task.name }},
-                                        Budget {{ task.budget }}</h5>
-                                    <p class="card-text">{{ task.note }}</p>
-                                    <p class="card-text"><strong>Owner {{ request.user }}</strong></p>
-                                    <a href="{% url 'task details' task.pk %}" class="btn btn-outline-info">See
-                                        details</a>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            {% if tasks %}
+                <h2 class='text-center'>These is your TaskList</h2>
+                <div class="row">
+                    <div class="row">
+                        {% for task in tasks %}
+                            <div class="col-lg-4">
+                                <div class="card h-100" style="width: 15rem;">
+                                    <div class="card">
+                                        <img src="{{ task.image.url }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ task.category }} {{ task.name }},
+                                                Budget {{ task.budget }}</h5>
+                                            <p class="card-text">{{ task.note }}</p>
+                                            <p class="card-text"><strong>Owner {{ request.user }}</strong></p>
+                                            <a href="{% url 'task details' task.pk %}" class="btn btn-outline-info">See
+                                                details</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
-            </div>
-        </div>
-    {% else %}
-        <div class="col-md-2" role="group">
-        </div>
-        <div class="text-center">
-            <h2>You have no tasks</h2>
-            <a href="{% url 'create task' %}" class="btn btn-outline-success">Add Task</a>
-        </div>
-    {% endif %}
+                </div>
+            {% else %}
+                <div class="col-md-2" role="group">
+                </div>
+                <div class="text-center">
+                    <h2>You have no tasks</h2>
+                    <a href="{% url 'create task' %}" class="btn btn-outline-success">Add Task</a>
+                </div>
+            {% endif %}
 {% endblock %}

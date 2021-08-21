@@ -1,5 +1,7 @@
 {% extends 'shared/partials/base.html' %}
 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
 {% block content %}
     <div class="container">
         <div class="row">
@@ -9,11 +11,11 @@
                     <div class="m-2">
                         <form method="post">
                             {% csrf_token %}
-                            <input type="submit" value="Confirm" class="btn btn-danger"/>
+                            <input type="submit" value="Confirm" class="btn btn-outline-danger"/>
                         </form>
                     </div>
                     <div class="m-2">
-                        <a class="btn btn-outline-info" href="javascript:history.back()">No, go back</a>
+                        <a class="btn btn-outline-info"" href="javascript:history.back()">No, go back</a>
                     </div>
                 </div>
             </div>
