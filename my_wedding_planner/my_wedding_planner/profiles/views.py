@@ -14,6 +14,7 @@ UserModel = get_user_model()
 @login_required
 def profile_details(request):
     profile = MyWeddingPlannerProfile.objects.get(pk=request.user.id)
+
     if request.method == 'POST':
         form = PlannerProfileForm(
             request.POST,

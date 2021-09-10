@@ -94,6 +94,7 @@ def task_comment(request, pk):
             task=task,
             user=request.user,
         )
+
         comment.save()
 
     return redirect('task details', task.pk)
